@@ -21,6 +21,18 @@ unsigned short koduj(int plec, int stan_cyw,
     return anwser;
 }
 
+void info(unsigned short kod){
+    unsigned int plec, stan_cyw, grupa_wiek, edu, zam, region, odp;
+    plec = (kod >> 15) & 1;
+    stan_cyw = (kod >> 13) & 3;
+    grupa_wiek = (kod >> 11) & 3;
+    edu = (kod >> 9) & 3;
+    zam = (kod >> 7) & 3;
+    region = (kod >> 3) & 15;
+    odp = (kod) & 7;
+}
+
+
 
 int main()
 {
@@ -29,5 +41,7 @@ int main()
     cout << res << endl;
     std::bitset<16> y(res);
     std::cout << y << '\n';
+     info(res);
+
     return 0;
 }
